@@ -11,13 +11,13 @@ Licenza: [MIT]
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
-#import seaborn as sns
-#from sklearn.model_selection import train_test_split
+import seaborn as sns
+from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import PolynomialFeatures
 from sklearn.metrics import mean_squared_error, r2_score
 
-df = pd.read_csv('C:\\Users\\hp\\Documents\\Corso AI Cefi\\file .csv\\USA Housing Dataset.csv')
+df = pd.read_csv('USA Housing Dataset.csv')
 '''
 #elimino tutte le colonne che non contengono numeri
 df_1 = df.drop(df.select_dtypes(include=['object']).columns, axis=1)
