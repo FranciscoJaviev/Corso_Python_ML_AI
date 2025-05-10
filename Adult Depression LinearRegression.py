@@ -19,7 +19,7 @@ from sklearn.preprocessing import PolynomialFeatures
 
 
 
-df = pd.read_csv('C:\\Users\\hp\\Documents\\Corso AI Cefi\\file .csv\\adult-depression-lghc-indicator-24.csv')
+df = pd.read_csv('adult-depression-lghc-indicator-24.csv')
 
 #elimino tutte le colonne che non contengono numeri
 df_1 = df.drop(df.select_dtypes(include=['object']).columns, axis=1)
