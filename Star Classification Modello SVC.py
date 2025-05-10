@@ -19,14 +19,14 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 
-df = pd.read_csv('C:\\Users\\hp\\Documents\\Corso AI Cefi\\file .csv\\star_classification.csv')
+df = pd.read_csv('star_classification.csv')
 
 X = df[["alpha","delta","u","g","r","i","z"]]
 y = df['class']
-class_name = ['Galassia', 'Stella', 'QSO'] 
-#class_name = list(y['Diagnosis'].unique()) 
+
+class_name = ['Galassia', 'Stella', 'QSO']  
 feature_names=["alpha","delta","u","g","r","i","z"]
-#lunghezza_names = max(len(cn) for cn in class_name)  # Ora sono tutte stringhe
+
 
 
 #Divisione dei Dati in Training e Test
