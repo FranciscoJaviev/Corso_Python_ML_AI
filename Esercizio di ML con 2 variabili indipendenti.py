@@ -16,7 +16,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error, r2_score
 
 
-#altro modo
+#altro modo nella quale creo un array 2D
 '''
 ore_studio_sonno = np.array([[1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7, 8])  
 [10, 9, 9, 10, 8, 7, 8, 6, 10, 9, 9, 10, 8, 7, 6, 8]])
