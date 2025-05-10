@@ -1,12 +1,23 @@
+'''Nome Script: Analisi su dati di un file csv.py
+Descrizione: Questo script elabora e analizza i dati di di un database e analizza la capcità del modello di fare previsioni
+
+Autore: [Francisco J. Scognamiglio]
+Versione: 1.0
+Data: [5 maggio 2025]
+Copyright: © [Francisco J. Scognamiglio] [2025]
+Licenza: [MIT]
+'''
+
+
 import tensorflow as tf
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
-import pandas as pd  # Aggiungi questa linea
-import matplotlib.pyplot as plt # Mantieni l'import di matplotlib
+import pandas as pd  
+import matplotlib.pyplot as plt 
 
 
-# 1. Caricamento dei dati dal file SVC (CSV)
-df = pd.read_csv('C:\\Users\\hp\\Documents\\Corso AI Cefi\\file .csv\\Mall_Customers.csv')
+# 1. Caricamento dei dati 
+df = pd.read_csv('Mall_Customers.csv')
 
 #elimino tutte le colonne che non contengono numeri
 df1 = df.drop(df.select_dtypes(include=['object']).columns, axis=1)
@@ -20,18 +31,14 @@ y = df1[['Spending_Score']].values
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
 
 
-# 3. Pre-elaborazione dei Dati (Scaling)
+# Pre-elaborazione dei Dati (Scaling)
 # È buona pratica scalare le feature per aiutare la rete neurale a convergere più velocemente
 scaler = StandardScaler()
 X_train_scaled = scaler.fit_transform(X_train)
 X_test_scaled = scaler.transform(X_test)
 
 
-# ... (caricamento dati come prima) ...
-
-#num_classes = len(y.unique()) # Determina il numero di classi uniche
-
-# 4. Definizione del Modello della Rete Neurale (Semplice)
+# Definizione del Modello della Rete Neurale (Semplice)
 model = tf.keras.Sequential([
     tf.keras.layers.Dense(units=8, activation='relu', input_shape=(X_train_scaled.shape[1],)), # Aggiorna input_shape
     tf.keras.layers.Dense(units=4, activation='relu'), # Aggiorna input_shape
@@ -39,7 +46,7 @@ model = tf.keras.Sequential([
 ])
 
 
-# 5. Compilazione del Modello
+# Compilazione del Modello
 model.compile(optimizer='adam',
               loss='mean_squared_error',  # Cambia la funzione di perdita per la regressione
               metrics=['mae', 'mse'])  # - 'mae' sta per Mean Absolute Error, che misura la media del valore 
@@ -50,7 +57,7 @@ model.compile(optimizer='adam',
 
 
 
-# 6. Addestramento del Modello
+# Addestramento del Modello
 epochs = 50                 # Numero di volte che l'intero set di training viene passato attraverso la rete
 batch_size = 32             # Numero di campioni di training processati alla volta
 history = model.fit(X_train_scaled, y_train, epochs=epochs, batch_size=batch_size, validation_data=(X_test_scaled, y_test), verbose=0)
@@ -61,7 +68,7 @@ print(f"Perdita (MSE) sul set di test: {loss:.4f}")
 print(f"Errore Quadratico Medio (MSE) sul set di test: {mse:.4f}")
 print(f"Errore Assoluto Medio (MAE) sul set di test: {mae:.4f}")
 
-# 8. (Opzionale) Visualizzazione della Curva di Addestramento
+# (Opzionale) Visualizzazione della Curva di Addestramento
 import matplotlib.pyplot as plt
 
 plt.figure(figsize=(10, 6))
@@ -93,7 +100,7 @@ plt.legend()
 plt.grid(True)
 plt.show()
 
-# 9. (Opzionale) Fare Previsioni
+# (Opzionale) Fare Previsioni
 predictions = model.predict(X_test_scaled)
 
 # Le previsioni saranno array di probabilità per ogni classe.
