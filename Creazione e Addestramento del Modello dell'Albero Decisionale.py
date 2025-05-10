@@ -17,7 +17,7 @@ import seaborn as sns
 from sklearn import tree
 import pandas as pd
 
-df = pd.read_csv('C:\\Users\\hp\\Documents\\Corso AI Cefi\\file .csv\\alzheimers_disease_data.csv')
+df = pd.read_csv('alzheimers_disease_data.csv')
 
 X = df[['Age','Gender','Ethnicity','EducationLevel']]
 y = df[['Diagnosis']]
