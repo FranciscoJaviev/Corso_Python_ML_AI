@@ -18,7 +18,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import PolynomialFeatures
 from sklearn.metrics import mean_squared_error, r2_score
 
-df = pd.read_csv('C:\\Users\\hp\\Documents\\Corso AI Cefi\\file .csv\\Breast Cancer Wisconsin (Diagnostic).csv')
+df = pd.read_csv('Breast Cancer Wisconsin (Diagnostic).csv')
 
 #elimino tutte le colonne che non contengono numeri
 df_1 = df.drop(df.select_dtypes(include=['object']).columns, axis=1)  
