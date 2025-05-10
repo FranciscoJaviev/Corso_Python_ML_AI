@@ -1,5 +1,5 @@
 '''Nome Script: Analisi su dati di un file csv.py
-Descrizione: Questo script elabora e analizza i dati di di un database e analizza la capcità del modello di fare previsioni
+Descrizione: Questo script elabora e analizza i dati di di un database e analizza la capcità del modello di fare previsioni. Utilizzando le reti neurali con dati discreti.
 
 Autore: [Francisco J. Scognamiglio]
 Versione: 1.0
