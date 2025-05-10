@@ -17,14 +17,14 @@ import seaborn as sns
 from sklearn import tree
 import pandas as pd
 
-df = pd.read_csv('C:\\Users\\hp\\Documents\\Corso AI Cefi\\file .csv\\star_classification.csv')
+df = pd.read_csv('star_classification.csv')
 
 X = df[["alpha","delta","u","g","r","i","z"]]
-y = df[['class']]
+y = df[['class']
+
 class_name = ['Galassia', 'Stella', 'QSO'] 
-#class_name = list(y['Diagnosis'].unique()) 
 feature_names=["alpha","delta","u","g","r","i","z"]
-#lunghezza_names = max(len(cn) for cn in class_name)  # Ora sono tutte stringhe
+
 
 # 2. Divisione dei Dati in Training e Test
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
