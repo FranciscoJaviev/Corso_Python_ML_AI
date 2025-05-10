@@ -18,7 +18,7 @@ import pandas as pd
 
 
 
-df = pd.read_csv('C:\\Users\\hp\\Documents\\Corso AI Cefi\\file .csv\\Breast Cancer Wisconsin (Diagnostic).csv')
+df = pd.read_csv('Breast Cancer Wisconsin (Diagnostic).csv')
 
 X = df[["radius_mean","texture_mean","perimeter_mean","area_mean"]]
 y = df['diagnosis']
