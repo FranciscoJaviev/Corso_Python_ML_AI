@@ -18,7 +18,7 @@ from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error
 import matplotlib.pyplot as plt
 
 
-df = pd.read_csv('C:\\Users\\hp\\Documents\\Corso AI Cefi\\file .csv\\student_habits_performance.csv')
+df = pd.read_csv('student_habits_performance.csv')
 
 
 
@@ -37,7 +37,7 @@ modello_svr = SVR(kernel='linear', C=1.0, gamma='scale')
 #modello_svr.fit(X_train, y_train)
 modello_svr.fit(X_train, y_train.values.ravel())  #Assicura che y sia un array monodimensionale
 
-# 5. Previsioni sul Set di Test
+# Previsioni sul Set di Test
 y_pred = modello_svr.predict(X_test)
 
 
