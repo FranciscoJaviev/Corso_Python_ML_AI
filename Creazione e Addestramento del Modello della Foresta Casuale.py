@@ -18,14 +18,12 @@ import pandas as pd
 
 
 
-df = pd.read_csv('C:\\Users\\hp\\Documents\\Corso AI Cefi\\file .csv\\alzheimers_disease_data.csv')
+df = pd.read_csv('alzheimers_disease_data.csv')
 
 X = df[['Age','Gender','Ethnicity','EducationLevel']]
 y = df['Diagnosis']
 class_name = ['Sano', 'Malato'] # Assumo che 0 = Sano, 1 = Malato
-#class_name = list(y['Diagnosis'].unique()) 
 feature_names=['Age', 'Gender', 'Ethnicity', 'EducationLevel']
-lunghezza_names = max(len(cn) for cn in class_name)  # Ora sono tutte stringhe
 
 # 2. Divisione dei Dati in Training e Test
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
