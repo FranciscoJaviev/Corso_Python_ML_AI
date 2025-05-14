@@ -38,10 +38,10 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_
 modello_svc = SVC(kernel='rbf', C=1.0, gamma='scale', random_state=42, verbose=True)
 modello_svc.fit(X_train, y_train)
 
-# 5. Previsioni sul Set di Test
+#Previsioni sul Set di Test
 y_pred = modello_svc.predict(X_test)
 
-# 6. Valutazione del Modello
+#Valutazione del Modello
 print("\nRisultati della Classificazione SVC:")
 print("\nMatrice di Confusione:")
 cm = confusion_matrix(y_test, y_pred)
