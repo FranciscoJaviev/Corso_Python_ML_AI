@@ -22,23 +22,24 @@ df = pd.read_csv('Breast Cancer Wisconsin (Diagnostic).csv')
 
 X = df[["radius_mean","texture_mean","perimeter_mean","area_mean"]]
 y = df['diagnosis']
-class_name = ['Maligno', 'Benigno'] # Assumo che 0 = Sano, 1 = Malato
-#class_name = list(y['Diagnosis'].unique()) 
-feature_names=["radius_mean","texture_mean","perimeter_mean","area_mean"]
-#lunghezza_names = max(len(cn) for cn in class_name)  # Ora sono tutte stringhe
 
-# 2. Divisione dei Dati in Training e Test
+class_name = ['Maligno', 'Benigno'] # Assumo che 0 = Sano, 1 = Malato
+
+feature_names=["radius_mean","texture_mean","perimeter_mean","area_mean"]
+
+
+# Divisione dei Dati in Training e Test
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
 
-# 3. Creazione e Addestramento del Modello della Foresta Casuale
+# Creazione e Addestramento del Modello della Foresta Casuale
 # Puoi sperimentare con diversi numeri di alberi (n_estimators) e altri parametri
 foresta_casuale = RandomForestClassifier(n_estimators=100, random_state=42)
 foresta_casuale.fit(X_train, y_train)
 
-# 4. Previsioni sul Set di Test
+# Previsioni sul Set di Test
 y_pred = foresta_casuale.predict(X_test)
 
-# 5. Valutazione del Modello
+# Valutazione del Modello
 print("Risultati della Foresta Casuale:")
 print("\nMatrice di Confusione:")
 
@@ -53,15 +54,13 @@ sns.heatmap(cm, annot=True, fmt='d', cmap='Blues',
 axs[0].set_ylabel('Valori Reali')
 axs[0].set_xlabel('Valori Predetti')
 axs[0].set_title('Matrice di Confusione (Foresta Casuale)')
-#plt.show()
+
 
 print("\nClassification Report:")
 print(classification_report(y_test, y_pred, target_names=class_name))
 
-# 6. (Opzionale) Stima dell'Importanza delle Feature (varibili predittive)
+# (Opzionale) Stima dell'Importanza delle Feature (varibili predittive)
 feature_importances = foresta_casuale.feature_importances_
-#feature_names = feature_names
-#sorted_indices = feature_importances.argsort()[::-1]
 sorted_indices = np.argsort(feature_importances)[::-1]  # Assicura corretto ordinamento per importanza delle etichette
 
 
