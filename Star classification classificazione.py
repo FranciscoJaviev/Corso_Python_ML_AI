@@ -49,6 +49,8 @@ print(classification_report(y_test, y_pred_ovr, target_names=class_name))
 
 # Utilizza la strategia multinomiale (Softmax)
 logistic_model_multinomial = LogisticRegression(random_state=42, multi_class='multinomial', solver='lbfgs', max_iter=1000)
+#Il parametro solver='lbfgs' viene utilizzato in diversi algoritmi di machine learning per specificare il metodo di ottimizzazione da utilizzare nella minimizzazione della funzione di costo.
+#Questo metodo è generalmente preferito quando si lavora con problemi che coinvolgono funzioni di perdita differenziabili e quando si ha un numero moderato di dati
 logistic_model_multinomial.fit(X_train, y_train)
 y_pred_multinomial = logistic_model_multinomial.predict(X_test)
 accuracy_multinomial = accuracy_score(y_test, y_pred_multinomial)
