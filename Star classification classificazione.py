@@ -18,7 +18,7 @@ from sklearn.metrics import accuracy_score
 
 
 
-df = pd.read_csv('C:\\Users\\hp\\Documents\\Corso AI Cefi\\file .csv\\star_classification.csv')
+df = pd.read_csv('star_classification.csv')
 
 X = df[["alpha","delta","u","g","r","i","z"]]
 y = df[['class']].values.ravel()
